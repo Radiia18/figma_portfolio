@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radiia — Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -15,16 +16,19 @@
         <header class="header">
             <a href="#home" class="logo">Murаtova Radiia</a>
 
-            <nav class="navigation">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#work">Work</a>
-                <a href="#contact">Contact</a>
-            </nav>
+            <button class="hamburger" id="hamburger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+</button>
+<nav class="navigation" id="menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+</nav>
 
             <div class="socials">
                 <a href="https://www.google.com/url?sa=i&source=web&rct=j&url=https://www.instagram.com/zachemkaa/&ved=2ahUKEwjK-LGam8CXAxWoQ_EDHdS1B1wQy_kOegoIAggACAAIBxAD&opi=89978449&cd&psig=AOvVaw31tvZaj4U5C37MLoDWwrUo&ust=1792297656376000" aria-label="LinkedIn">Instagram</a>
-                <a href="#" aria-label="Behance">Be</a>
+                <a href="https://github.com/Radiia18" aria-label="Behance">GitHub</a>
                 <a href="#" aria-label="Twitter">♥</a>
             </div>
         </header>
@@ -183,5 +187,7 @@
 
 
 
+<button id="scrollTopBtn" type="button" aria-label="Наверх">↑</button>
 </body>
 </html>
+

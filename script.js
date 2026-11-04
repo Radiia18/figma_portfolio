@@ -1,28 +1,36 @@
-function setUpGreeting(){
-    const greeting = document.getElementById("greeting");
-    const button = document.getElementById("name-button");
-    const error = document.getElementById("name-error");
-    const savedName = localStorage.getItem("userName");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
 
-}
 
-    if (savedName) {
-        greeting.textContent = 'Привет, ${saveName}!';
-        button.textContent = 'Изменить имя';
+window.addEventListener("scroll", function () {
+    scrollTopBtn.classList.toggle("show", window.scrollY > 300);
+});
+
+
+scrollTopBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+hamburger.addEventListener("click", function () {
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", String(!isOpen));
+    menu.classList.toggle("open", !isOpen);
+});
+
+
+menu.addEventListener("click", function (event) {
+    if (event.target.tagName === "A") {
+        menu.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
     }
+});
 
-    function askName(){
-        const name = prompt("Как тебя зовут?");
 
-        if (name === null || name.trim() === ""){
-            error.textContent = "Ты не указал имя. Нажми на кнопку и попробуй снова";
-            return;
-        }
-
-        const cleanName = name.trim();
-        localSrotage.setItem("userName", cleanName);
-        greeting.textContent = 'Hi, ${cleanName}!';
-        button.textContent = 'Изменить имя';
-        error.textContent = "";
-
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        menu.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
     }
+});
